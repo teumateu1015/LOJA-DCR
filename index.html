@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja MTA - Categorias</title>
+  <style>
+    /* Estilos Gerais */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #1c1c1c;
+      color: white;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: #222;
+      text-align: center;
+      padding: 0;
+    }
+
+    header img {
+      width: 100%; /* O GIF ocupará a largura completa */
+      height: auto; /* Mantém a proporção original */
+    }
+
+    header h1 {
+      color: #FFD700;
+      margin: 0;
+      padding: 10px 0;
+      background: #333;
+    }
+
+    /* Navegação por Categorias */
+    .categories {
+      display: flex;
+      justify-content: center;
+      background: #333;
+      padding: 10px 0;
+    }
+
+    .categories button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .categories button:hover {
+      background: #FFD700;
+      color: black;
+    }
+
+    .categories button.active {
+      background: #FFD700;
+      color: black;
+    }
+
+    /* Conteúdo */
+    .content {
+      display: none;
+      padding: 20px;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .item {
+      margin-bottom: 15px;
+      background: #2c2c2c;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .item h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .item button {
+      background: #FFD700;
+      color: black;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .item button:hover {
+      background: #ffc107;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://cdn.discordapp.com/attachments/1308177271151923231/1313129649685008474/logo.gif?ex=674f02c9&is=674db149&hm=3eaf224ca25806300a78eedc864c33729c558499906d56c630aaceffdb78eb46&" alt="Logo Animada">
+    <h1>Loja Oficial - Servidor MTA</h1>
+  </header>
+
+  <!-- Menu de Categorias -->
+  <div class="categories">
+    <button class="active" onclick="showCategory('organizacoes')">Organizações</button>
+    <button onclick="showCategory('vips')">VIPs</button>
+    <button onclick="showCategory('penalidades')">Penalidades</button>
+  </div>
+
+  <!-- Conteúdo das Categorias -->
+  <div id="organizacoes" class="content active">
+    <div class="item">
+      <h3>Facção</h3>
+      <p>Pacote especial para facções.</p>
+      <button>Comprar</button>
+    </div>
+    <div class="item">
+      <h3>Orgs</h3>
+      <p>Acesso exclusivo para organizações.</p>
+      <button>Comprar</button>
+    </div>
+    <div class="item">
+      <h3>Corps</h3>
+      <p>Benefícios especiais para corporações.</p>
+      <button>Comprar</button>
+    </div>
+  </div>
+
+  <div id="vips" class="content">
+    <div class="item">
+      <h3>Ouro</h3>
+      <p>Acesso Premium.</p>
+      <button>Comprar</button>
+    </div>
+    <div class="item">
+      <h3>Diamante</h3>
+      <p>Benefícios exclusivos.</p>
+      <button>Comprar</button>
+    </div>
+    <div class="item">
+      <h3>Prata</h3>
+      <p>Plano econômico.</p>
+      <button>Comprar</button>
+    </div>
+  </div>
+
+  <div id="penalidades" class="content">
+    <div class="item">
+      <h3>Anti-Ban</h3>
+      <p>Proteção contra bans.</p>
+      <button>Comprar</button>
+    </div>
+    <div class="item">
+      <h3>Ban 30 Dias</h3>
+      <p>Remoção do ban em 30 dias.</p>
+      <button>Comprar</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 - Loja Oficial MTA</p>
+  </footer>
+
+  <script>
+    function showCategory(category) {
+      const contents = document.querySelectorAll('.content');
+      const buttons = document.querySelectorAll('.categories button');
+
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+
+      document.getElementById(category).classList.add('active');
+      document.querySelector(`button[onclick="showCategory('${category}')"]`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
